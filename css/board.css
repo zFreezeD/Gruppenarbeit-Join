@@ -1,0 +1,26 @@
+.boardoverview {
+    display: flex;
+    justify-content: space-evenly;
+    margin-left:300px;
+    padding-top: 100px;
+}
+.toDo{
+    background-color: grey;
+    height: 80vh;
+    width: 200px;
+}
+.inProgress{
+    background-color: grey;
+    height: 80vh;
+    width: 200px;
+}
+.testing{
+    background-color: grey;
+    height: 80vh;
+    width: 200px;
+}
+.done{
+    background-color: grey;
+    height: 80vh;
+    width: 200px;
+}

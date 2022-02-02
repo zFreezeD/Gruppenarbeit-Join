@@ -11,12 +11,23 @@
     <script src="js/addTask.js"></script> 
     <script src="js/help.js"></script> 
     
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/mainstyle.css">
+    <link rel="stylesheet" href="css/addTask.css">
+    <link rel="stylesheet" href="css/backlog.css">
+    <link rel="stylesheet" href="css/help.css">
+    <link rel="stylesheet" href="css/board.css">
 
 </head>
 <body>
-
+    <div class="navbar" id="navbar">
+        <img src="img/logo.png">
+        <span id="board" onclick="board()">Board</span>
+        <span id="backlog" onclick="backlog()">Backlog</span>
+        <span id="addTask" onclick="addTask()">Add Task</span>
+        <span id="Help" onclick="help()"> Help</span>
+    </div>
     <div id="content">
+
 
     </div>
     

@@ -1,0 +1,31 @@
+body {
+    margin:0;
+    font-family: Calibri, sans-serif;
+}
+
+
+.navbar {
+    position:fixed;
+    left:0;
+    height: 100vh;
+    width: 200px;
+    background-color: blue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+.navbar img{
+    margin-bottom: 40px;
+}
+.navbar span{
+    padding: 20px;
+}
+.navbar span:hover{
+    cursor: pointer;
+    border-left: solid white 3px ;
+    font-size: 28px;
+}
