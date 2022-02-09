@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/mainstyle.css">
+    <link rel="stylesheet" href="css/addTask.css">
+
+    <script src="js/main.js"></script>
+    <script src="js/board.js"></script>
+    <script src="js/backlog.js"></script>
+    <script src="js/addTask.js"></script>
+    <script src="js/help.js"></script>
+
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="navbar" id="navbar">
+        <img src="img/logo.png">
+        <span id="board" onclick="board()">Board</span>
+        <span id="backlog" onclick="backlog()">Backlog</span>
+        <span id="addTask" onclick="addTask()">Add Task</span>
+        <span id="Help" onclick="help()"> Help</span>
+    </div>
+
+    <div class="main">
+        <div class="main-head">
+            <h2>Add Task</h2>
+            <p>Learning management System Project</p>
+        </div>
+
+        <div class="main-container">
+
+            <div class="main-container-object">
+                <h3>Title</h3>
+                <input type="text" placeholder="Titelname">
+            </div>
+
+            <div class="main-container-object">
+                <h3>Due Date</h3>
+                <input type="date">
+            </div>
+
+            <div class="main-container-object">
+                <h3>Category</h3>
+                <select id="taskCategory" name="taskCategory">
+                    <option value="Category1">Category1</option>
+                    <option value="Category2">Category2</option>
+                    <option value="Category3">Category3</option>
+                </select>
+            </div>
+
+            <div class="main-container-object">
+                <h3>Urgency</h3>
+                <select id="taskCategory" name="taskCategory">
+                    <option value="Category1">High</option>
+                    <option value="Category2">Mid</option>
+                    <option value="Category3">Low</option>
+                </select>
+            </div>
+
+            <div class="main-container-object">
+                <h3>Description</h3>
+                <textarea placeholder="Beschreibung..."></textarea>
+            </div>
+
+            <div class="main-container-object">
+                <h3>Assigned To</h3>
+                <div class="assign">
+                    <button onclick="addMember()">+</button>
+                    <div class="assign-img-container">
+                        <img src="img/taskProfile.png">
+                    </div>
+                </div>
+                <div id="assign-menu" class="assign-menu-main d-none">
+                    <p class="scroll-info">Scroll with SHIFT + MOUSEWHEEL</p>
+                    <div class="assign-menu-grid">
+
+                        <div class="assign-menu-object">
+                            <img src="img/taskProfile.png">
+                            <div class="assign-menu-object-information">
+                                <p>Name</p>
+                                <p>mustermann123@googlemail.com</p>
+                            </div>
+                        </div>
+
+                        <div class="assign-menu-object">
+                            <img src="img/taskProfile.png">
+                            <div class="assign-menu-object-information">
+                                <p>Name</p>
+                                <p>mustermann123@googlemail.com</p>
+                            </div>
+                        </div>
+
+                        <div class="assign-menu-object">
+                            <img src="img/taskProfile.png">
+                            <div class="assign-menu-object-information">
+                                <p>Name</p>
+                                <p>mustermann123@googlemail.com</p>
+                            </div>
+                        </div>
+
+                        <div class="assign-menu-object">
+                            <img src="img/taskProfile.png">
+                            <div class="assign-menu-object-information">
+                                <p>Name</p>
+                                <p>mustermann123@googlemail.com</p>
+                            </div>
+                        </div>
+
+                        <div class="assign-menu-object">
+                            <img src="img/taskProfile.png">
+                            <div class="assign-menu-object-information">
+                                <p>Name</p>
+                                <p>mustermann123@googlemail.com</p>
+                            </div>
+                        </div>
+
+                        <div class="assign-menu-object">
+                            <img src="img/taskProfile.png">
+                            <div class="assign-menu-object-information">
+                                <p>Name</p>
+                                <p>mustermann123@googlemail.com</p>
+                            </div>
+                        </div>
+
+                        <div class="assign-menu-object">
+                            <img src="img/taskProfile.png">
+                            <div class="assign-menu-object-information">
+                                <p>Name</p>
+                                <p>mustermann123@googlemail.com</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

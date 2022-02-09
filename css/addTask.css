@@ -1,0 +1,196 @@
+body {
+    box-sizing: border-box;
+}
+
+h2 {
+    margin: 0;
+}
+
+h3 {
+    color: #1f3190;
+    text-transform: uppercase;
+}
+
+.main {
+    display: flex;
+    flex-flow: column;
+    margin-top: 10px;
+    margin-left: 290px;
+}
+
+.main-head p {
+    font-size: 1.1em;
+    color: #1f3190;
+}
+
+.main-container {
+    min-height: 60vh;
+    min-width: 700px;
+
+    background-color: #F4F3FB;
+
+    margin-top: 10px;
+    margin-right: 100px;
+
+
+
+    display: grid;
+    grid-template-areas: '. .';
+
+    border-radius: 20px;
+
+}
+
+.main-container-object {
+    display: flex;
+    max-width: 100%;
+    justify-content: center;
+    flex-flow: column;
+
+    height: fit-content;
+
+    margin: 20px;
+}
+
+.main-container-object input, select {
+    box-sizing: border-box;
+
+    padding: 12px 20px;
+
+    height: 50px;
+    min-width: 200px;
+    max-width: 50%;
+
+
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+
+}
+
+
+
+.main-container-object textarea {
+    box-sizing: border-box;
+
+    padding: 12px 20px;
+
+    min-height: 150px;
+    resize: vertical;
+    min-width: 200px;
+    max-width: 50%;
+
+
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+}
+
+.main-container-object input:focus, select:focus, textarea:focus {
+    border: 2px solid rgba(31, 50, 144, 1);
+    background-color: rgba(31, 50, 144, 0.1);
+    outline: none;
+}
+
+.assign {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.assign button {
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+
+    background: lightgray;
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    border: 2px solid #1f3190;
+}
+
+.assign-img-container {
+    background: lightgray;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    overflow: hidden;
+    border: 2px solid #1f3190;
+}
+
+
+
+.assign-menu-main{
+    max-width: 90%;
+}
+
+.assign-menu-grid {
+    display: flex;
+    flex-flow: column;
+    overflow-x: scroll;
+    flex-wrap: wrap;
+    max-height: 300px;
+    overflow-x: scroll;
+    width: 90%;
+    background-color: rgba(255, 255, 255, 0.219);
+    color: black;
+}
+
+/* custom scrollbar */
+.assign-menu-grid::-webkit-scrollbar {
+    height: 20px;
+}
+
+.assign-menu-grid::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.assign-menu-grid::-webkit-scrollbar-thumb {
+    background-color: #1f3190;
+    border-radius: 20px;
+    border: 6px solid transparent;
+    background-clip: content-box;
+}
+
+.assign-menu-grid::-webkit-scrollbar-thumb:hover {
+    background-color: #122583;
+}
+
+.assign-menu-object {
+    cursor: pointer;
+    min-width: 200px;
+    height: 80px;
+    margin: 10px;
+    padding-right: 10px;
+    background-color: rgba(31, 50, 144, 0.5);;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.assign-menu-object-information{
+    display: flex;
+    flex-flow: column;
+    font-weight: bold;
+}
+
+.assign-menu-object-information p{
+    margin: 2px;
+}
+
+.assign-menu-object img {
+    border-radius: 100%;
+    border: 2px solid #1f3190;
+    margin: 5px;
+    height: 50px;
+    width: 50px;
+}
+
+.scroll-info{
+    color: #122583;
+    font-weight: bold;
+    margin: 0;
+    margin-top: 5px;
+}

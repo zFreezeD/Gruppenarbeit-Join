@@ -1,8 +1,18 @@
 body {
     margin:0;
     font-family: Calibri, sans-serif;
+    font-family: 'PT Sans', sans-serif;
 }
 
+h2{
+    font-size: 2em;
+    font-weight: bold;
+}
+
+h3{
+    font-size: 1.5em;
+    font-weight: bold;
+}
 
 .navbar {
     position:fixed;
@@ -29,4 +39,8 @@ body {
     cursor: pointer;
     border-left: solid white 3px ;
     font-size: 28px;
+}
+
+.d-none{
+    display: none;
 }
