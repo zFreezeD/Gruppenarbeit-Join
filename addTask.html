@@ -15,7 +15,7 @@
     <script src="js/addTask.js"></script>
     <script src="js/help.js"></script>
 
-    <title>Document</title>
+    <title>Add Task</title>
 </head>
 
 <body>
@@ -25,6 +25,9 @@
         <span id="backlog" onclick="backlog()">Backlog</span>
         <span id="addTask" onclick="addTask()">Add Task</span>
         <span id="Help" onclick="help()"> Help</span>
+    </div>
+
+    <div id="info-bubble-landing" class="info-bubble">
     </div>
 
     <div class="main">
@@ -37,17 +40,17 @@
 
             <div class="main-container-object">
                 <h3>Title</h3>
-                <input type="text" placeholder="Titelname">
+                <input id="title-input" type="text" placeholder="Titelname">
             </div>
 
             <div class="main-container-object">
                 <h3>Due Date</h3>
-                <input type="date">
+                <input id="date-input" type="date">
             </div>
 
             <div class="main-container-object">
                 <h3>Category</h3>
-                <select id="taskCategory" name="taskCategory">
+                <select id="category-input" name="taskCategory">
                     <option value="Category1">Category1</option>
                     <option value="Category2">Category2</option>
                     <option value="Category3">Category3</option>
@@ -56,7 +59,7 @@
 
             <div class="main-container-object">
                 <h3>Urgency</h3>
-                <select id="taskCategory" name="taskCategory">
+                <select id="urgency-input" name="taskCategory">
                     <option value="Category1">High</option>
                     <option value="Category2">Mid</option>
                     <option value="Category3">Low</option>
@@ -65,80 +68,52 @@
 
             <div class="main-container-object">
                 <h3>Description</h3>
-                <textarea placeholder="Beschreibung..."></textarea>
+                <textarea id="textarea-input" placeholder="Beschreibung..."></textarea>
             </div>
 
             <div class="main-container-object">
                 <h3>Assigned To</h3>
                 <div class="assign">
-                    <button onclick="addMember()">+</button>
-                    <div class="assign-img-container">
-                        <img src="img/taskProfile.png">
+
+                    <button onclick="addMember(), createMember()">+</button>
+                    <div id="assign-landing" class="assign-img-container">
+                    </div>
+                </div>
+                <div id="create-member-menu" class="create-member-menu d-none">
+                    <div class="assign-menu-object">
+                        <img onclick="changeCreateProfileImage()" id="create-member-image" src="img/taskProfile1.png">
+                        <div class="assign-menu-object-information">
+                            <input id="create-member-name" type="text" placeholder="Name..">
+                            <input id="create-member-email" type="email" placeholder="E-Mail..">
+                        </div>
+
+                    </div>
+                    <div class="create-member-btn-container">
+                        <button onclick="closeInstantiate()">Cancel</button>
+                        <button onclick="instantiateMember()">Bestätigen</button>
                     </div>
                 </div>
                 <div id="assign-menu" class="assign-menu-main d-none">
                     <p class="scroll-info">Scroll with SHIFT + MOUSEWHEEL</p>
-                    <div class="assign-menu-grid">
+                    <div id="member-landing" class="assign-menu-grid">
 
-                        <div class="assign-menu-object">
-                            <img src="img/taskProfile.png">
-                            <div class="assign-menu-object-information">
-                                <p>Name</p>
-                                <p>mustermann123@googlemail.com</p>
-                            </div>
-                        </div>
-
-                        <div class="assign-menu-object">
-                            <img src="img/taskProfile.png">
-                            <div class="assign-menu-object-information">
-                                <p>Name</p>
-                                <p>mustermann123@googlemail.com</p>
-                            </div>
-                        </div>
-
-                        <div class="assign-menu-object">
-                            <img src="img/taskProfile.png">
-                            <div class="assign-menu-object-information">
-                                <p>Name</p>
-                                <p>mustermann123@googlemail.com</p>
-                            </div>
-                        </div>
-
-                        <div class="assign-menu-object">
-                            <img src="img/taskProfile.png">
-                            <div class="assign-menu-object-information">
-                                <p>Name</p>
-                                <p>mustermann123@googlemail.com</p>
-                            </div>
-                        </div>
-
-                        <div class="assign-menu-object">
-                            <img src="img/taskProfile.png">
-                            <div class="assign-menu-object-information">
-                                <p>Name</p>
-                                <p>mustermann123@googlemail.com</p>
-                            </div>
-                        </div>
-
-                        <div class="assign-menu-object">
-                            <img src="img/taskProfile.png">
-                            <div class="assign-menu-object-information">
-                                <p>Name</p>
-                                <p>mustermann123@googlemail.com</p>
-                            </div>
-                        </div>
-
-                        <div class="assign-menu-object">
-                            <img src="img/taskProfile.png">
-                            <div class="assign-menu-object-information">
-                                <p>Name</p>
-                                <p>mustermann123@googlemail.com</p>
+                        <div id="member-create" class="assign-menu-object">
+                            <div onclick="showInstantiate()" class="assign-menu-create">
+                                <p>+</p>
                             </div>
                         </div>
 
                     </div>
                 </div>
+
+                <div class="main-confirm-btn-container">
+                    <button onclick="sendTask()" onclick="">Senden</button>
+
+                </div>
+
             </div>
+
+
 
         </div>
     </div>

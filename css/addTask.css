@@ -112,14 +112,29 @@ h3 {
 }
 
 .assign-img-container {
+    display: flex;
+    flex-flow: row;
+    overflow-x: scroll;
+    width: 300px;
+    
+}
+
+.assign-img-container:hover{
+    cursor: pointer;
+}
+
+.assign-img-container img{
     background: lightgray;
-    width: 50px;
-    height: 50px;
+    min-width: 50px;
+    margin-right: 5px;
+    min-height: 50px;
     border-radius: 100%;
     overflow: hidden;
     border: 2px solid #1f3190;
 }
-
+.assign-img-container img:hover{
+    border: 2px solid red;
+}
 
 
 .assign-menu-main{
@@ -139,22 +154,22 @@ h3 {
 }
 
 /* custom scrollbar */
-.assign-menu-grid::-webkit-scrollbar {
+.assign-menu-grid::-webkit-scrollbar,  .assign-img-container::-webkit-scrollbar{
     height: 20px;
 }
 
-.assign-menu-grid::-webkit-scrollbar-track {
+.assign-menu-grid::-webkit-scrollbar-track, .assign-img-container::-webkit-scrollbar-track {
     background-color: transparent;
 }
 
-.assign-menu-grid::-webkit-scrollbar-thumb {
+.assign-menu-grid::-webkit-scrollbar-thumb, .assign-img-container::-webkit-scrollbar-thumb {
     background-color: #1f3190;
     border-radius: 20px;
     border: 6px solid transparent;
     background-clip: content-box;
 }
 
-.assign-menu-grid::-webkit-scrollbar-thumb:hover {
+.assign-menu-grid::-webkit-scrollbar-thumb:hover, .assign-img-container::-webkit-scrollbar-thumb:hover {
     background-color: #122583;
 }
 
@@ -188,9 +203,168 @@ h3 {
     width: 50px;
 }
 
+.assign-menu-create{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: greenyellow;
+    font-size: 5em;
+}
+
 .scroll-info{
     color: #122583;
     font-weight: bold;
     margin: 0;
     margin-top: 5px;
+}
+
+.create-member-menu{
+    display: flex;
+    flex-flow: column;
+    position: absolute;
+
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 150px;
+    height: 150px;
+    width: 500px;
+    border-radius: 10px;
+    background-color: rgb(18, 37, 131, 0.9);
+}
+
+.create-member-menu img{
+
+    height: 60px;
+    width: 60px;
+    border: 2px solid white;
+
+}
+
+.create-member-menu input{
+
+    box-sizing: border-box;
+
+    padding: 12px 20px;
+
+    height: 50px;
+    min-width: 200px;
+    max-width: 50%;
+
+
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+
+}
+
+.create-member-menu input:focus{
+    border: 2px solid greenyellow;
+    background-color: white;
+    outline: none;
+}
+.create-member-menu button{
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+
+    background: white;
+    width: 100px;
+    height: 30px;
+    border: 2px solid #ffffff;
+
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.create-member-btn-container{
+    margin-top: 5px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.create-member-menu button:hover{
+    background: rgb(241, 241, 241);
+    border: 2px solid #ffffff;
+}
+
+.main-confirm-btn-container{
+    margin-top: 20px;
+
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.main-confirm-btn-container button{
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+
+    background: #122583;
+    color: white;
+    
+    margin-right: 5vw;
+    width: 100px;
+    height: 50px;
+    border-radius: 5px;
+
+}
+
+.main-confirm-btn-container button:hover{
+
+    background: #162a8f;
+
+}
+
+.info-bubble{
+    pointer-events: none;
+    display: flex;
+    flex-flow: column;
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+
+    height: 90vh;
+    width: 100vw;
+}
+
+.info-bubble-object{
+    display: flex;
+    justify-content: center;
+
+    height: 50px;
+    width: 300px;
+    margin-top: 10px;
+    background-color: rgba(255, 0, 0, 0.4);
+    border: 2px solid rgba(255, 0, 0, 0.7);
+    border-radius: 10px;
+    color: white;
+
+    animation: fromBottom 1s ease-in-out;
+}
+
+@keyframes fromBottom {
+    from{
+        opacity: 0;
+        transform:translate(0px,100px)
+    }to{
+        opacity: 1;
+        transform:translate(0px,0px)
+    }
+  }
+
+.d-none{
+    display: none;
 }
