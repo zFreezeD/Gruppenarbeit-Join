@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join - Backlog</title>
+
+    <script src="js/mini_backend.js"></script>
+    <script src="js/backlog.js"></script>
+    <script src="js/inculeHTML.js"></script>
+    <script src="js/menu.js"></script>
+
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/mainstyle.css">
+    <link rel="stylesheet" href="css/backlog.css">
+</head>
+<body onload="init()">
+    <!-- Include Header -->
+    <div w3-include-html="templates/header.html"></div>
+    <div class="content">
+        <div id="restore-task" class="restore-task">
+            <span>Add task to board </span>
+        </div>
+        <section class="backlog">
+            <h2 class="headline">
+                Backlog
+                <span class="headline headline--xs headline--sub headline--blue">
+                    Learning Management System Project
+                </span>
+            </h2>
+            <div class="backlog__titles">
+                <h3>Assigned to</h3>
+                <h3>Category</h3>
+                <h3>Details</h3>
+            </div>
+            <div class="backlog__card">
+                <ul id="tasks" class="backlog__list"></ul>
+            </div>
+        </section>
+    </div>
+    <div id="overlay" class="overlay">
+        <div class="overlay__container">
+            <figure class="figure-container">
+                <figcaption class="form-title">Edit task</figcaption>
+                <form id="tasks-form" class="form">
+                    <div class="form-container">
+                        <div class="form__column">
+                            <div class="form__title">
+                                <label for="title"
+                                    class="headline headline--xs headline--blue headline--sub mb-s">Title</label>
+                                <input class="input__title" type="text" id="title"
+                                    placeholder="Management meeting preparation" required>
+                            </div>
+                            <div class="form__category">
+                                <label for="category"
+                                    class="headline headline--xs headline--blue headline--sub mb-s">Category</label>
+                                <select class="form-select" name="" id="category" required>
+                                    <option value="management">Management</option>
+                                    <option value="product">Product</option>
+                                    <option value="sale">Sale</option>
+                                </select>
+                            </div>
+                            <div class="form__textarea">
+                                <label for="textarea"
+                                    class="headline headline--xs headline--blue headline--sub mb-s">Description</label>
+                                <textarea class="form-textarea" name="" id="textarea" rows="3" required></textarea>
+                            </div>
+                        </div>
+                        <div class="form__column">
+                            <div class="form__date">
+                                <label for="date" class="headline headline--xs headline--blue headline--sub mb-s">Due
+                                    date</label>
+                                <div class="input__data-icon">
+                                    <input type="date" id="date-time" class="input__date" required>
+                                </div>
+                            </div>
+                            <div class="form__urgency">
+                                <label for="urgency"
+                                    class="headline headline--xs headline--blue headline--sub mb-s">Urgency</label>
+                                <select class="form-select" name="urgency" id="urgency" required>
+                                    <option value="high">High</option>
+                                    <option value="middle">Middle</option>
+                                    <option value="middle">Low</option>
+                                </select>
+                            </div>
+                            <div class="form__assigned-to">
+                                <h2 class="headline headline--xs headline--blue headline--sub mb-s">Assigned to</h2>
+                                <div class="assigned-to__container">
+                                    <div id="user-cotainer" class="assigned-to__user-container d-none">
+                                    </div>
+                                    <div id="assigned-user"></div>
+                                    <button onclick="openAssignedTo(); event.preventDefault();"
+                                        class="add-user"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form__btn-container">
+                        <button class="create-task-btn">Edit task</button>
+                    </div>
+                </form>
+                <img onclick="closeEditTask()" class="close" src="img/close_black_24dp(2).svg" alt="">
+            </figure>
+        </div>
+    </div>
+</body>
+
+</html>
