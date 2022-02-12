@@ -14,3 +14,45 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     overflow-x: hidden;
 }
+
+/* Global start -------------------------------------------------- */
+button,
+label {
+    cursor: pointer;
+}
+
+.headline {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.headline--xs {
+    font-size: 16px;
+}
+
+.headline--small {
+    font-size: 18px;
+}
+
+.headline--medium {
+    font-size: 25px;
+}
+
+.headline--large {
+    font-size: 30px;
+}
+
+.headline--sub {
+    display: block;
+    padding: 8px 0 0 0;
+}
+
+.headline--blue {
+    color: #6666da;
+}
+
+.mb-s {
+    margin-bottom: 10px;
+}
+
+/* Global end ---------------------------------------------------- */
