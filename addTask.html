@@ -8,25 +8,21 @@
 
     <link rel="stylesheet" href="css/mainstyle.css">
     <link rel="stylesheet" href="css/addTask.css">
+    <link rel="stylesheet" href="css/header.css">
 
+    <script src="js/inculeHTML.js"></script>
     <script src="js/main.js"></script>
     <script src="js/board.js"></script>
     <script src="js/backlog.js"></script>
     <script src="js/addTask.js"></script>
     <script src="js/help.js"></script>
+    <script src="js/menu.js"></script>
 
     <title>Add Task</title>
 </head>
 
-<body>
-    <div class="navbar" id="navbar">
-        <img src="img/logo.png">
-        <span id="board" onclick="board()">Board</span>
-        <span id="backlog" onclick="backlog()">Backlog</span>
-        <span id="addTask" onclick="addTask()">Add Task</span>
-        <span id="Help" onclick="help()"> Help</span>
-    </div>
-
+<body onload="includeHTML()">
+    <div w3-include-html="templates/header.html"></div>
     <div id="info-bubble-landing" class="info-bubble">
     </div>
 

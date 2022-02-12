@@ -9,28 +9,20 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <title>Join</title>
+
+    <script src="js/inculeHTML.js"></script>
     <script src="js/main.js"></script>
-    <script src="js/board.js"></script>
-    <script src="js/backlog.js"></script>
     <script src="js/addTask.js"></script>
-    <script src="js/help.js"></script>
+    <script src="js/menu.js"></script>
 
     <link rel="stylesheet" href="css/mainstyle.css">
     <link rel="stylesheet" href="css/addTask.css">
-    <link rel="stylesheet" href="css/backlog.css">
-    <link rel="stylesheet" href="css/help.css">
-    <link rel="stylesheet" href="css/board.css">
-
+    <link rel="stylesheet" href="css/header.css">
 </head>
 
-<body>
-    <div class="navbar" id="navbar">
-        <img src="img/logo.png">
-        <span id="board" onclick="board()">Board</span>
-        <span id="backlog" onclick="backlog()">Backlog</span>
-        <a id="addTask" href="addTask.html">Add Task</a>
-        <span id="Help" onclick="help()"> Help</span>
-    </div>
+<body onload="init()">
+<!-- HEADER -->
+<div w3-include-html="templates/header.html"></div>
     <div id="content">
 
 
