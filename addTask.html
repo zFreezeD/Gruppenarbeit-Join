@@ -10,10 +10,9 @@
     <link rel="stylesheet" href="css/addTask.css">
     <link rel="stylesheet" href="css/header.css">
 
+    <script src="js/mini_backend.js"></script>
     <script src="js/inculeHTML.js"></script>
     <script src="js/main.js"></script>
-    <script src="js/board.js"></script>
-    <script src="js/backlog.js"></script>
     <script src="js/addTask.js"></script>
     <script src="js/help.js"></script>
     <script src="js/menu.js"></script>
@@ -21,7 +20,7 @@
     <title>Add Task</title>
 </head>
 
-<body onload="includeHTML()">
+<body onload="includeHTML(), downloadTasksFromServer()">
     <div w3-include-html="templates/header.html"></div>
     <div id="info-bubble-landing" class="info-bubble">
     </div>
@@ -47,18 +46,18 @@
             <div class="main-container-object">
                 <h3>Category</h3>
                 <select id="category-input" name="taskCategory">
-                    <option value="Category1">Category1</option>
-                    <option value="Category2">Category2</option>
-                    <option value="Category3">Category3</option>
+                    <option value="Management">Management</option>
+                    <option value="Product">Product</option>
+                    <option value="Sale">Sale</option>
                 </select>
             </div>
 
             <div class="main-container-object">
                 <h3>Urgency</h3>
                 <select id="urgency-input" name="taskCategory">
-                    <option value="Category1">High</option>
-                    <option value="Category2">Mid</option>
-                    <option value="Category3">Low</option>
+                    <option value="High">High</option>
+                    <option value="Mid">Mid</option>
+                    <option value="Low">Low</option>
                 </select>
             </div>
 

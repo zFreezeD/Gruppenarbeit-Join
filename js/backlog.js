@@ -18,7 +18,7 @@ let users = [{
     img: "img/pexels-tima-miroshnichenko-7567200.jpg"
 }];
 
-setURL('http://aldin-bijedic.developerakademie.net/smallest_backend_ever');
+setURL('http://gruppe-167.developerakademie.net/');
 
 async function init() {
     await downloadTasksFromServer();

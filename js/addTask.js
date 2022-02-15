@@ -4,6 +4,8 @@ function addtask() {
 
 let isMenu = false;
 
+let allTasks = [];
+
 let errorNumber = 0;
 
 let workerArray =
@@ -17,6 +19,26 @@ let assignedWorkers = [];
 
 let currentCreateImg = 1;
 
+
+///Server Code
+
+setURL('http://gruppe-167.developerakademie.net/');
+
+async function downloadTasks() {
+    await downloadTasksFromServer();
+}
+
+async function downloadTasksFromServer() {
+    await downloadFromServer();
+    allTasks = await JSON.parse(backend.getItem('allTasks')) || [];
+}
+
+function allTaskSaveAllTasks() {
+    backend.setItem('allTasks', JSON.stringify(allTasks));
+    sendToInfoBubble("Upload complete!");
+}
+
+//Normal Code
 
 function addMember() {
     if (isMenu == false) {
@@ -80,7 +102,7 @@ function changeCreateProfileImage() {
     if (currentCreateImg >= 5)
         currentCreateImg = 1;
 
-    document.getElementById('create-member-image').src = `img/taskProfile${currentCreateImg}.png`
+    document.getElementById('create-member-image').src = `img/taskProfile${currentCreateImg}.png`;
 }
 
 function instantiateMember() {
@@ -124,13 +146,48 @@ function sendTask() {
     let category = document.getElementById('category-input');
     let urgency = document.getElementById('urgency-input');
     let description = document.getElementById('textarea-input');
-    //let assigned = document.getElementById('empty');
 
     if (checkFilledOut(title, date, category, urgency, description)) {
-        sendToInfoBubble("Alles funktioniert, aber Code fehlt!");
+        sendToInfoBubble("Wird hochgeladen...");
+
+        let users = [];
+        for (let i = 0; i < assignedWorkers.length; i++) {
+            users.push({
+                'email': workerArray['email'][assignedWorkers[i]],
+                'id': assignedWorkers[i],
+                'img': `img/taskProfile${workerArray['image'][assignedWorkers[i]]}.png`,
+                'name': workerArray['name'][assignedWorkers[i]]
+            }
+            )
+        }
+        allTasks.push(
+            {
+                'backlog': true,
+                'board': false,
+                'category': category.value,
+                'date': date.value,
+                'description': description.value,
+                'urgency': urgency.value,
+                users
+            }
+        )
+        allTaskSaveAllTasks();
+        clearAll();
     } else {
-        sendToInfoBubble("Noch nicht alles ausgefüllt!");
+        sendToInfoBubble("Etwas hat nicht Funktioniert!");
     }
+}
+
+function clearAll(){
+    assignedWorkers = [];
+    document.getElementById('title-input').value = "";
+    document.getElementById('date-input').value = "";
+    document.getElementById('category-input').value = "Sale";
+    document.getElementById('urgency-input').value = "High";
+    document.getElementById('textarea-input').value = "";
+    document.getElementById('assign-landing').innerHTML = "";
+
+
 }
 
 function checkFilledOut(title, date, category, urgency, description) {
@@ -138,13 +195,13 @@ function checkFilledOut(title, date, category, urgency, description) {
     if (title.value.length > 3) {
         if (date.value != undefined && date.value.length > 1) {
             if (description.value.length > 3) {
-                if(assignedWorkers.length > 0){
+                if (assignedWorkers.length > 0) {
                     return true;
-                }else{
+                } else {
                     sendToInfoBubble("Kein Mitarbeiter ausgewählt!");
-                return false;
+                    return false;
                 }
-                
+
             } else {
                 sendToInfoBubble("Beschreibung fehlt!");
                 return false;
@@ -158,7 +215,7 @@ function checkFilledOut(title, date, category, urgency, description) {
         return false;
     }
 
-    
+
 
 
 }
@@ -175,4 +232,42 @@ function sendToInfoBubble(string) {
     setTimeout(() => {
         document.getElementById(`info-object-${objectID}`).remove();
     }, 5000);
+}
+
+
+
+
+//Test Area
+
+function testUrgency() {
+    let category = document.getElementById('category-input');
+    let urgency = document.getElementById('urgency-input');
+    console.log('Category:', category.value);
+    console.log('Urgency:', urgency.value);
+}
+
+function Test() {
+    allTasks.push(
+        {
+            'backlog': true,
+            'board': false,
+            'category': 'testCategory',
+            'date': '01-01-2022',
+            'description': 'test description',
+            'urgency': 'testUrgency',
+            users: [{
+                'email': 'test@mail.com',
+                'id': '0',
+                'img': 'img/taskProfile1.png',
+                'name': 'test'
+            }]
+        }
+    )
+
+    allTaskSaveAllTasks();
+}
+
+function TestRemoveTasksFromServer() {
+    allTasks = [];
+    allTaskSaveAllTasks();
 }

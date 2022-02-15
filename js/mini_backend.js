@@ -26,10 +26,12 @@ window.onload = async function() {
 async function downloadFromServer() {
     let result = await loadJSONFromServer();
     jsonFromServer = JSON.parse(result);
+    console.log("Download Complete");
 }
 
 function setURL(url) {
     BASE_SERVER_URL = url;
+    console.log("Link set");
 }
 
 /**
