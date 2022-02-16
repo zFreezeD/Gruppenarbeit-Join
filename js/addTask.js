@@ -166,6 +166,7 @@ function sendTask() {
                 'board': false,
                 'category': category.value,
                 'date': date.value,
+                'title': title.value,
                 'description': description.value,
                 'urgency': urgency.value,
                 users

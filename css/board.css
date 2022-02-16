@@ -1,26 +1,91 @@
-.boardoverview {
+.header {}
+
+.main {
+    margin-top: 10px;
+    margin-left: 290px;
+}
+
+.main-objects {
+    color: white;
     display: flex;
-    justify-content: space-evenly;
-    margin-left:300px;
-    padding-top: 100px;
+    flex-flow: row;
+
+    max-width: 90vw;
+
 }
-.toDo{
-    background-color: grey;
-    height: 80vh;
-    width: 200px;
+
+.object-container {
+    display: flex;
+    flex-flow: column;
+    min-height: 300px;
+    max-height: 95vh;
+    margin-right: 50px;
+    min-width: 290px;
+    background-color: #1E3190;
+
+    overflow-y: auto;
 }
-.inProgress{
-    background-color: grey;
-    height: 80vh;
-    width: 200px;
+
+
+.object-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 100%;
 }
-.testing{
-    background-color: grey;
-    height: 80vh;
-    width: 200px;
+
+.dragable-note {
+    cursor: pointer;
+
+    color: white;
+    display: flex;
+    flex-flow: column;
+    margin: 10px;
+
+    height: fit-content;
+    width: 270px;
+
+    background-color: red;
+
+    border-radius: 5%;
+    -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+
 }
-.done{
-    background-color: grey;
-    height: 80vh;
-    width: 200px;
+
+.dragable-note-title {
+    display: flex;
+    justify-content: center;
+    font-size: 1.2em;
 }
+
+.dragable-note-description {
+    padding-left: 5px;
+    max-height: 200px;
+    overflow-y: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.dragable-note-date {
+    display: flex;
+    justify-content: center;
+}
+
+.add-card{
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 20px;
+}
+
+
+
+
+
+
+

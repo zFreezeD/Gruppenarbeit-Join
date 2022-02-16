@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/mainstyle.css">
+    <link rel="stylesheet" href="css/board.css">
+    <link rel="stylesheet" href="css/header.css">
+
+    <script src="js/mini_backend.js"></script>
+    <script src="js/inculeHTML.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/help.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/board.js"></script>
+
+
+
+</head>
+
+<body onload="includeHTML(), downloadTasks();">
+    <div w3-include-html="templates/header.html"></div>
+    <div class="main">
+        <div class="head">
+            <h2>Board of name</h2>
+        </div>
+
+
+        <div  class="main-objects">
+            <div ondrop="moveTo('landing-landing')" ondragover="allowDrop(event)" class="object-container">
+                <div class="object-title">
+                    <h2>Landing</h2>
+                </div>
+                <div  id="landing-landing" class="object-landing">
+
+                </div>
+
+                <p class="add-card">Add card</p>
+
+            </div>
+
+            <div ondrop="moveTo('landing-inprogress')" ondragover="allowDrop(event)" class="object-container">
+                <div class="object-title">
+                    <h2>In Progress</h2>
+                </div>
+                <div   id="landing-inprogress" class="object-landing">
+
+                </div>
+
+                <p class="add-card">Add card</p>
+            </div>
+
+            <div ondrop="moveTo('landing-discuss')" ondragover="allowDrop(event)" class="object-container">
+                <div class="object-title">
+                    <h2>Discuss</h2>
+                </div>
+                <div  id="landing-discuss" class="object-landing">
+
+                </div>
+
+                <p class="add-card">Add card</p>
+            </div>
+
+            <div ondrop="moveTo('landing-done')" ondragover="allowDrop(event)" class="object-container">
+                <div class="object-title">
+                    <h2>Done</h2>
+                </div>
+                <div id="landing-done" class="object-landing">
+
+                </div>
+
+                <p class="add-card">Add card</p>
+
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
