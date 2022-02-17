@@ -4,6 +4,8 @@ allTasks = [];
 
 userTasks = [];
 
+workerArray = [];
+
 currentID = 1;
 
 
@@ -12,13 +14,32 @@ currentID = 1;
 setURL('http://gruppe-167.developerakademie.net/');
 
 async function downloadTasks() {
+    await downloadAll();
+    createMember();
+}
+
+async function downloadAll() {
     await downloadTasksFromServer();
+    await downloadUserTasksFromServer();
+    await downloadWorkerArrayFromServer();
 }
 
 async function downloadTasksFromServer() {
     await downloadFromServer();
     allTasks = await JSON.parse(backend.getItem('allTasks')) || [];
-    createObjects();
+    console.log("Downloaded allTasks");
+}
+
+async function downloadUserTasksFromServer() {
+    await downloadFromServer();
+    userTasks = await JSON.parse(backend.getItem('userTasks')) || [];
+    console.log("Downloaded userTasks");
+}
+
+async function downloadWorkerArrayFromServer() {
+    await downloadFromServer();
+    workerArray = await JSON.parse(backend.getItem('workerArray')) || [];
+    console.log("Downloaded workerArray");
 }
 
 function uploadUserTasks() {
@@ -26,7 +47,27 @@ function uploadUserTasks() {
     console.log("Uploaded UserTasks");
 }
 
+function uploadAllTasks() {
+    backend.setItem('allTasks', JSON.stringify(allTasks));
+    console.log("Uploaded AllTasks");
+}
+
 //Normal Code
+
+
+function createMember() {
+    let memberSelect = document.getElementById('member-select');
+    memberSelect.innerHTML = '';
+    console.log("TTT", workerArray, memberSelect, workerArray.length);
+    
+    for (let i = 0; i < workerArray['name'].length; i++) {
+        memberSelect.innerHTML += `<option value="${i}">${workerArray['name'][i]}</option>`;
+    }
+
+    changeUser();
+}
+
+
 function createObjects() {
 
     for (let i = 0; i < allTasks.length; i++) {
@@ -35,7 +76,7 @@ function createObjects() {
                 if (allTasks[i]['users'][x]['id'] == currentID && allTasks[i]['users'][x]['alreadyBoard'] == undefined) {
                     allTasks[i]['users'][x]['alreadyBoard'] = true;
                     allTasks[i]['users'][x]['whatBoard'] = "landing";
-
+                    console.log("added:", allTasks[i]['users'][x]);
                     userTasks.push(
                         {
                             'taskIndex': i,
@@ -47,7 +88,7 @@ function createObjects() {
             }
         }
     }
-
+    uploadAllTasks();
     createCards();
 }
 
@@ -61,14 +102,16 @@ function createCards() {
 
 
     for (let i = 0; i < userTasks.length; i++) {
-        if (allTasks[userTasks[i]['taskIndex']]['users'][userTasks[i]['userIndex']]['id'] == currentID) {
-            landing = document.getElementById(userTasks[i]['category']);
-            landing.innerHTML += 
-            `<div id="index-${i}" ondragstart="startDrag(${i})" draggable="true" class="dragable-note">
+        if (allTasks.length > 0) {
+            if (allTasks[userTasks[i]['taskIndex']]['users'][userTasks[i]['userIndex']]['id'] == currentID) {
+                landing = document.getElementById(userTasks[i]['category']);
+                landing.innerHTML +=
+                    `<div id="index-${i}" ondragstart="startDrag(${i})" draggable="true" class="dragable-note">
             <div class="dragable-note-title">${allTasks[userTasks[i]['taskIndex']]['title']}</div>
             <div class="dragable-note-description">${allTasks[userTasks[i]['taskIndex']]['description']}</div>
             <div class="dragable-note-date">${allTasks[userTasks[i]['taskIndex']]['date']}</div>
         </div>`
+            }
         }
     }
 }
@@ -85,5 +128,17 @@ function allowDrop(event) {
 
 function moveTo(category) {
     userTasks[currentDraggedElement]['category'] = category;
+    uploadUserTasks();
     createCards();
+}
+
+
+function changeUser() {
+    currentID= document.getElementById('member-select').value;
+
+    document.getElementById('member-name').innerHTML = workerArray['name'][currentID];
+    document.getElementById('member-email').innerHTML = workerArray['email'][currentID];
+    document.getElementById('member-image').src = `img/taskProfile${workerArray['image'][currentID]}.png`;
+    document.getElementById('header').innerHTML = `Board of ${workerArray['name'][currentID]}`
+    createObjects();
 }

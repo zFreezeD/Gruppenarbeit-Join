@@ -26,7 +26,17 @@
     <div w3-include-html="templates/header.html"></div>
     <div class="main">
         <div class="head">
-            <h2>Board of name</h2>
+            <h2 id="header">Board of name</h2>
+            <div id="user" class="assign-menu-object">
+                <img id="member-image" src="img/taskProfile1.png">
+                <div class="assign-menu-object-information">
+                    <p id="member-name">Name</p>
+                    <p id="member-email">mail@mail.de</p>
+                </div>
+                <select onchange="changeUser()" id="member-select" name="member">
+                    <option  value="volvo">Name</option>
+                  </select>
+            </div> 
         </div>
 
 

@@ -19,6 +19,8 @@ let assignedWorkers = [];
 
 let currentCreateImg = 1;
 
+let testArray = [];
+
 
 ///Server Code
 
@@ -26,6 +28,7 @@ setURL('http://gruppe-167.developerakademie.net/');
 
 async function downloadTasks() {
     await downloadTasksFromServer();
+    await downloadWorkerArray();
 }
 
 async function downloadTasksFromServer() {
@@ -38,6 +41,24 @@ function allTaskSaveAllTasks() {
     sendToInfoBubble("Upload complete!");
 }
 
+function uploadWorkerArray() {
+    backend.setItem('workerArray', JSON.stringify(workerArray));
+    sendToInfoBubble("Upload workerArray complete!");
+}
+
+async function downloadWorkerArray() {
+    await downloadFromServer();
+    workerArray = await JSON.parse(backend.getItem('workerArray')) || [];
+    sendToInfoBubble("Download workerArray complete!");
+}
+
+function removeFromWorkerArray(int){
+    workerArray['name'].splice(int,1);
+    workerArray['image'].splice(int,1);
+    workerArray['email'].splice(int,1);
+
+    uploadWorkerArray();
+}
 //Normal Code
 
 function addMember() {
@@ -125,6 +146,7 @@ function instantiateMember() {
 
         closeInstantiate();
         createMember();
+        uploadWorkerArray();
     } else {
         sendToInfoBubble("Fehelende Informationen!");
         nameInput.style.borderColor = "red";
