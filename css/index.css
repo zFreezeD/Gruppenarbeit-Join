@@ -1,6 +1,8 @@
 .main {
     width: 100vw;
     height: 100vh;
+    max-height: 100%;
+    overflow-x: hidden;
     padding-left: 260px;
     display: flex;
     flex-flow: column;
@@ -25,7 +27,7 @@ a{
 }
 
 .bg1{
-    background-color: rgba(31, 50, 144, 0.8);
+    background-color: rgba(31, 50, 144, 0.9);
 }
 
 .bg2{
@@ -39,3 +41,40 @@ a{
 .bg4{
     background-color: rgba(31, 50, 144, 0.5);
 }
+
+
+a:hover{
+    text-decoration: underline;
+}
+
+.bg2:hover{
+    background-color: rgba(31, 50, 144, 1);
+}
+
+.bg3:hover{
+    background-color: rgba(31, 50, 144, 1);
+}
+
+.bg4:hover{
+    background-color: rgba(31, 50, 144, 1);
+}
+
+@media (max-width: 702px) {
+    .main {
+        padding-top: 90px;
+        padding-left: 0px;
+        
+    }
+
+    .info{
+        display: none !important;
+    }
+
+    .main-links{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 33.33vh;
+        width: 100%;
+        font-size: 1em;
+    }
