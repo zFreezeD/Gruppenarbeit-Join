@@ -7,26 +7,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
     <title>Join</title>
 
     <script src="js/inculeHTML.js"></script>
     <script src="js/main.js"></script>
-    <script src="js/addTask.js"></script>
     <script src="js/menu.js"></script>
-    <script src="js/mini_backend.js"></script>
 
     <link rel="stylesheet" href="css/mainstyle.css">
-    <link rel="stylesheet" href="css/addTask.css">
+    <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/header.css">
 </head>
 
 <body onload="init()">
-<!-- HEADER -->
-<div w3-include-html="templates/header.html"></div>
-    <div id="content">
+    <!-- HEADER -->
+    <div w3-include-html="templates/header.html"></div>
 
+    <div class="main">
+        <div class="main-container">
 
+                <div class="main-links bg1">
+                    Die Seite ist ein "Scrum"-Projekt. Der Scrum-Leiter kann bei "Add-Task" die Aufgaben seiner Mitarbeiter verteilen. Im Backlog werden diese gesammelt und können dann aktiviert werden, je nach Dringlichkeit. Wenn diese im "Backlog" verteilt werden, können die Mitarbeiter ihre Aufgaben im Board verwalten. 
+                </div>
+
+            <a href="/addTask.html">
+                <div class="main-links bg2">
+                    Start bei: Add Task
+                </div>
+            </a>
+
+            <a href="/backlog.html">
+                <div class="main-links bg3">
+                    Verwalten bei: Backlog
+                </div>
+            </a>
+
+            <a href="/board.html">
+                <div class="main-links bg4">
+                    Aufgaben einsehen bei: Board
+                </div>
+            </a>
+
+        </div>
     </div>
 
 </body>

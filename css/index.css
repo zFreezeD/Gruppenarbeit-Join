@@ -1,0 +1,41 @@
+.main {
+    width: 100vw;
+    height: 100vh;
+    padding-left: 260px;
+    display: flex;
+    flex-flow: column;
+    color: white;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
+
+.main-links{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25vh;
+    width: 100%;
+    max-width: 100%;
+    font-size: 1.2em;
+    text-align: center;
+    padding: 100px
+}
+
+.bg1{
+    background-color: rgba(31, 50, 144, 0.8);
+}
+
+.bg2{
+    background-color: rgba(31, 50, 144, 0.7);
+}
+
+.bg3{
+    background-color: rgba(31, 50, 144, 0.6);
+}
+
+.bg4{
+    background-color: rgba(31, 50, 144, 0.5);
+}
