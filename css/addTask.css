@@ -116,14 +116,14 @@ h3 {
     flex-flow: row;
     overflow-x: scroll;
     width: 300px;
-    
+
 }
 
-.assign-img-container:hover{
+.assign-img-container:hover {
     cursor: pointer;
 }
 
-.assign-img-container img{
+.assign-img-container img {
     background: lightgray;
     min-width: 50px;
     margin-right: 5px;
@@ -132,12 +132,13 @@ h3 {
     overflow: hidden;
     border: 2px solid #1f3190;
 }
-.assign-img-container img:hover{
+
+.assign-img-container img:hover {
     border: 2px solid red;
 }
 
 
-.assign-menu-main{
+.assign-menu-main {
     max-width: 90%;
 }
 
@@ -154,7 +155,7 @@ h3 {
 }
 
 /* custom scrollbar */
-.assign-menu-grid::-webkit-scrollbar,  .assign-img-container::-webkit-scrollbar{
+.assign-menu-grid::-webkit-scrollbar, .assign-img-container::-webkit-scrollbar {
     height: 20px;
 }
 
@@ -179,19 +180,20 @@ h3 {
     height: 80px;
     margin: 10px;
     padding-right: 10px;
-    background-color: rgba(31, 50, 144, 0.5);;
+    background-color: rgba(31, 50, 144, 0.5);
+    ;
     border-radius: 10px;
     display: flex;
     align-items: center;
 }
 
-.assign-menu-object-information{
+.assign-menu-object-information {
     display: flex;
     flex-flow: column;
     font-weight: bold;
 }
 
-.assign-menu-object-information p{
+.assign-menu-object-information p {
     margin: 2px;
 }
 
@@ -203,7 +205,7 @@ h3 {
     width: 50px;
 }
 
-.assign-menu-create{
+.assign-menu-create {
     width: 100%;
     height: 50px;
     display: flex;
@@ -213,14 +215,14 @@ h3 {
     font-size: 5em;
 }
 
-.scroll-info{
+.scroll-info {
     color: #122583;
     font-weight: bold;
     margin: 0;
     margin-top: 5px;
 }
 
-.create-member-menu{
+.create-member-menu {
     display: flex;
     flex-flow: column;
     position: absolute;
@@ -235,7 +237,7 @@ h3 {
     background-color: rgb(18, 37, 131, 0.9);
 }
 
-.create-member-menu img{
+.create-member-menu img {
 
     height: 60px;
     width: 60px;
@@ -243,7 +245,7 @@ h3 {
 
 }
 
-.create-member-menu input{
+.create-member-menu input {
 
     box-sizing: border-box;
 
@@ -259,12 +261,13 @@ h3 {
 
 }
 
-.create-member-menu input:focus{
+.create-member-menu input:focus {
     border: 2px solid greenyellow;
     background-color: white;
     outline: none;
 }
-.create-member-menu button{
+
+.create-member-menu button {
     color: inherit;
     border: none;
     padding: 0;
@@ -281,19 +284,19 @@ h3 {
     margin-right: 50px;
 }
 
-.create-member-btn-container{
+.create-member-btn-container {
     margin-top: 5px;
     width: 100%;
     display: flex;
     justify-content: space-between;
 }
 
-.create-member-menu button:hover{
+.create-member-menu button:hover {
     background: rgb(241, 241, 241);
     border: 2px solid #ffffff;
 }
 
-.main-confirm-btn-container{
+.main-confirm-btn-container {
     margin-top: 20px;
 
     width: 100%;
@@ -301,7 +304,7 @@ h3 {
     justify-content: flex-end;
 }
 
-.main-confirm-btn-container button{
+.main-confirm-btn-container button {
     color: inherit;
     border: none;
     padding: 0;
@@ -311,7 +314,7 @@ h3 {
 
     background: #122583;
     color: white;
-    
+
     margin-right: 5vw;
     width: 100px;
     height: 50px;
@@ -319,13 +322,13 @@ h3 {
 
 }
 
-.main-confirm-btn-container button:hover{
+.main-confirm-btn-container button:hover {
 
     background: #162a8f;
 
 }
 
-.info-bubble{
+.info-bubble {
     pointer-events: none;
     display: flex;
     flex-flow: column;
@@ -340,7 +343,7 @@ h3 {
     width: 100vw;
 }
 
-.info-bubble-object{
+.info-bubble-object {
     display: flex;
     justify-content: center;
 
@@ -356,15 +359,147 @@ h3 {
 }
 
 @keyframes fromBottom {
-    from{
+    from {
         opacity: 0;
-        transform:translate(0px,100px)
-    }to{
-        opacity: 1;
-        transform:translate(0px,0px)
+        transform: translate(0px, 100px)
     }
-  }
 
-.d-none{
+    to {
+        opacity: 1;
+        transform: translate(0px, 0px)
+    }
+}
+
+.d-none {
     display: none;
+}
+
+
+@media (max-width: 1000px) {
+
+    .main-container {
+        grid-template-areas: '.';
+        min-width: unset;
+    }
+
+    .main-confirm-btn-container {
+        justify-content: center;
+    }
+
+    .main-container-object input, select {
+        max-width: 90%;
+        min-width: 20%;
+    }
+
+    .main-container-object textarea {
+        max-width: unset;
+        min-width: unset;
+    }
+
+
+}
+
+@media (max-width: 800px) {
+
+    .main-container {
+        grid-template-areas: '.';
+        min-width: unset;
+        margin-right: 20px;
+    }
+
+    .main-container-object {
+        align-items: center;
+        width: 100%;
+        margin: 0;
+        margin-top: 20px;
+    }
+
+    .main-confirm-btn-container {
+        justify-content: center;
+    }
+
+    .main-container-object input, select {
+        width: 300px;
+        max-width: unset;
+        min-width: unset;
+    }
+
+    .main-container-object textarea {
+        width: 300px;
+        max-width: unset;
+        min-width: unset;
+    }
+
+
+}
+
+@media (max-width: 700px) {
+
+    .main {
+        margin: 0;
+        margin-top: 100px;
+        max-width: 100%;
+    }
+
+    .main-head {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+    }
+
+    .main-head p{
+        text-align: center;
+    }
+
+    .info-bubble {
+        top: unset;
+        bottom: 200px;
+        justify-content: flex-end;
+    }
+
+
+    .info-bubble-object {
+        align-items: flex-end;
+        margin-bottom: 0;
+    }
+
+    .main-container {
+        grid-template-areas: '.';
+        min-width: unset;
+        margin-right: 0;
+        max-width: 100%;
+        padding-bottom: 20px;
+    }
+    
+    .assign{
+        padding-left: 50px;
+        max-width: 100%;
+    }
+    .assign button{
+        margin: 0;
+        gap: 0;
+    }
+
+    .assign-img-container{
+        max-width: 50%;
+    }
+
+    .main-container-object {
+        align-items: center;
+        max-width: 98vw;
+        margin: 0;
+        padding: 0;
+        margin-top: 20px;
+    }
+
+
+    .main-container-object input, select {
+        width: 250px;
+    }
+
+    .main-container-object textarea {
+        width: 250px;
+    }
+
+
 }

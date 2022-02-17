@@ -49,7 +49,7 @@ function uploadWorkerArray() {
 async function downloadWorkerArray() {
     await downloadFromServer();
     workerArray = await JSON.parse(backend.getItem('workerArray')) || [];
-    sendToInfoBubble("Download workerArray complete!");
+    console.log("Download workerArray complete!");
 }
 
 function removeFromWorkerArray(int){
