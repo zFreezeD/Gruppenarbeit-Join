@@ -1,7 +1,7 @@
 .content {
     padding-left: 275px;
     padding-right: 15px;
-    padding-top: 50px;
+    padding-top: 40px;
     padding-bottom: 20px;
 }
 
@@ -9,7 +9,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5rem 0 2rem 0;
+    padding: 50px 0 20px 0;
 }
 
 .assigned-to,
@@ -131,7 +131,7 @@ time {
     font-size: 13px;
     font-style: italic;
     display: block;
-    margin: 0.4rem 0 0 0;
+    margin: 10px 0 0 0;
     color: grey;
 }
 
@@ -257,7 +257,7 @@ time {
     border: none;
     outline: none;
     cursor: pointer;
-    padding: 0.6rem;
+    padding: 8px;
     background-color: white;
     border-radius: 100%;
 }
@@ -289,7 +289,7 @@ time {
 .form__date,
 .form__urgency,
 .form__assigned-to {
-    margin: 2rem 0 0 0;
+    margin: 20px 0 0 0;
 }
 
 .form__assigned-to {
@@ -301,8 +301,8 @@ time {
     flex-wrap: nowrap;
     justify-content: flex-start;
     align-items: center;
-    margin: 3rem 0 0 0;
-    min-height: 10rem;
+    margin: 30px 0 0 0;
+    min-height: 150px;
 }
 
 .assigned-to__user-container {
@@ -311,8 +311,8 @@ time {
     top: 0;
     left: 0;
     background-color: white;
-    padding: 1rem;
-    border-radius: 0.5rem;
+    padding: 10px;
+    border-radius: 5px;
     box-shadow: 1px 1px 8px #00000029;
     transform: translate(0, -20px);
     z-index: 99;
@@ -327,14 +327,14 @@ time {
     height: 70px;
     border-radius: 100%;
     object-fit: cover;
-    border: 0.4rem solid white;
+    border: 5px solid white;
     cursor: pointer;
     position: relative;
     transition: all 125ms ease-in-out;
 }
 
 .form-assigned-to__img:not(:first-child) {
-    margin: 0 0 0 -2rem;
+    margin: 0 0 0 -20px;
 }
 
 .form-assigned-to__img:hover {
@@ -408,7 +408,7 @@ input[type="date"] {
     content: '';
     position: absolute;
     width: 25px;
-    height:  25px;
+    height: 25px;
     top: 0;
     right: 7px;
     background-image: url('../img/calendar_month_black_24dp.svg');
@@ -472,17 +472,39 @@ input[type="date"] {
     }
 }
 
-@media (max-width: 33em){
-    .category, .backlog__titles > h3:nth-child(2) {
+@media (max-width: 33em) {
+    .category, .backlog__titles>h3:nth-child(2) {
         display: none;
     }
 }
 
 @media (max-width: 44em) {
     .content {
-        padding-left: 1.3rem;
-        padding-right: 1.3rem;
-        padding-top: 13rem;
-        padding-bottom: 2rem;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 15px;
+        padding-bottom: 20px;
+    }
+
+    .backlog__titles {
+        padding: 70px 0 20px 0;
+    }
+}
+
+@media (max-width: 51em) {
+    .figure-container {
+        min-width: unset;
+        width: 100%;
+    }
+}
+
+@media (max-width: 40em) {
+
+    .form__column {
+        flex-basis: 100%;
+    }
+
+    .overlay__container {
+        display: unset;
     }
 }

@@ -100,14 +100,14 @@
     bottom: 0;
     width: 100%;
     height: 100vh;
-    padding-top: 60px;
+    padding-top: 100px;
     background-color: black;
     z-index: 99;
     list-style-type: none;
 }
 
 .navbar__mobile-link {
-    font-size: 26px;
+    font-size: 24px;
     color: white;
     text-decoration: none;
     text-transform: uppercase;
@@ -115,7 +115,18 @@
 }
 
 .navbar__mobile-list-item {
-    padding: 0.8rem 0;
+    padding: 10px 0;
+    width: 100%;
+    text-align: center;
+    transition: all 225ms ease-in-out;
+}
+
+.navbar__mobile-list-item:hover {
+    background-color: white;
+}
+
+.navbar__mobile-list-item:hover > a {
+    color: black;
 }
 
 
