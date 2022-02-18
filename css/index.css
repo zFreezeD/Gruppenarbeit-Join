@@ -32,7 +32,14 @@ a{
     max-width: 100%;
     font-size: 1.2em;
     text-align: center;
-    padding: 100px
+    padding: 100px;
+}
+
+.bg1,
+.bg2,
+.bg3,
+.bg4 {
+    transition: all 225ms ease-in-out;
 }
 
 .bg1{
