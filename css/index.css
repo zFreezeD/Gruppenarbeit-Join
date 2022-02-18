@@ -9,6 +9,15 @@
     color: white;
 }
 
+.info{
+    display: flex;
+    flex-flow: column;
+}
+
+h1{
+    margin-bottom: 10px;
+}
+
 a{
     color: white;
     text-decoration: none;
@@ -27,37 +36,66 @@ a{
 }
 
 .bg1{
-    background-color: rgba(31, 50, 144, 0.9);
+    background-color: #313c77;
 }
 
 .bg2{
-    background-color: rgba(31, 50, 144, 0.7);
+    background: url(/img/create.png);
+    opacity: 0.75;
+    transform: scale(1);
+    background-size: cover;
 }
 
 .bg3{
-    background-color: rgba(31, 50, 144, 0.6);
+    background-image: url(/img/give.png);
+    opacity: 0.75;
+    background-size: cover;
+    background-position-y: center
 }
 
 .bg4{
-    background-color: rgba(31, 50, 144, 0.5);
+    background-image: url(/img/change.png);
+    opacity: 0.75;
+    background-size: cover;
+    background-position-y: center;
+}
+
+a{
+    font-size: 1.2em;
+    text-shadow: 1px 1px 6px #000000;
 }
 
 
 a:hover{
-    text-decoration: underline;
+    font-size: 1.2em;
 }
 
 .bg2:hover{
-    background-color: rgba(31, 50, 144, 1);
+    opacity: 1;
+    transform: scale(1.1);
 }
 
 .bg3:hover{
-    background-color: rgba(31, 50, 144, 1);
+    opacity: 1;
+    transform: scale(1.1);
 }
 
 .bg4:hover{
-    background-color: rgba(31, 50, 144, 1);
+    opacity: 1;
+    transform: scale(1.1);
 }
+
+
+@media (max-width: 890px) {
+
+    .main-links{
+        padding: 30px;
+        font-size: 1em;
+    }
+
+}
+
+
 
 @media (max-width: 702px) {
     .main {
@@ -78,3 +116,4 @@ a:hover{
         width: 100%;
         font-size: 1em;
     }
+}
