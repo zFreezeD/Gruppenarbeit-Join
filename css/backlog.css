@@ -241,18 +241,19 @@ time {
 
 .figure-container {
     background-color: rgb(241, 241, 241);
-    border-radius: 0.3rem;
-    padding: 2rem;
-    min-width: 65rem;
+    border-radius: 5px;
+    padding: 30px;
+    min-width: 750px;
     position: absolute;
+    overflow: hidden;
 }
 
 .close {
-    width: 4rem;
-    height: 4rem;
+    width: 40px;
+    height: 40px;
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    top: 20px;
+    right: 20px;
     border: none;
     outline: none;
     cursor: pointer;
@@ -265,7 +266,7 @@ time {
 
 .form-title {
     text-transform: uppercase;
-    font-size: 2rem;
+    font-size: 26px;
     background-color: rgb(240, 240, 240);
     font-weight: bold;
 }
@@ -274,12 +275,12 @@ time {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin: 0 -2rem;
+    margin: 0 -15px;
 }
 
 .form__column {
     flex: 1;
-    margin: 0 2rem;
+    margin: 0 15px;
 }
 
 .form__title,
@@ -345,8 +346,8 @@ time {
     background-color: rgb(226, 226, 226);
     cursor: pointer;
     position: relative;
-    width: 3.5rem;
-    height: 3.5rem;
+    width: 35px;
+    height: 35px;
     border: unset;
     outline: none;
     border-radius: 100%;
@@ -374,29 +375,29 @@ time {
 }
 
 .form__btn-container {
-    margin: 3rem -2rem -2rem -2rem;
+    margin: 20px -30px -30px -30px;
     padding: 1rem;
     background-color: #e7e7e7;
     text-align: right;
 }
 
 .create-task-btn {
-    font-size: 1.5rem;
+    font-size: 16px;
     text-transform: uppercase;
-    border-radius: 0.5rem;
+    border-radius: 5px;
     border: none;
     background: var(--btn-blue);
     color: white;
-    padding: 1rem 2rem;
+    padding: 8px 20px;
 }
 
 input[type="text"],
 input[type="date"] {
-    height: 4.5rem;
+    height: 40px;
     width: 100%;
-    padding: 0.8rem 0.5rem;
+    padding: 5px 10px;
     outline: none;
-    font-size: 1.6rem;
+    font-size: 16px;
 }
 
 .input__data-icon {
@@ -406,8 +407,8 @@ input[type="date"] {
 .input__data-icon::after {
     content: '';
     position: absolute;
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 25px;
+    height:  25px;
     top: 0;
     right: 7px;
     background-image: url('../img/calendar_month_black_24dp.svg');
@@ -425,20 +426,20 @@ input[type="date"] {
 
 .form-select {
     width: 100%;
-    height: 4.5rem;
+    height: 40px;
     background-color: white;
     border: 1px solid #9a9a9a;
-    font-size: 1.6rem;
-    padding: 0.8rem 0.5rem;
+    font-size: 16px;
+    padding: 5px 10px;
 }
 
 .form-textarea {
     font-family: Arial, Helvetica, sans-serif;
     width: 100%;
-    height: 13rem;
+    height: 200px;
     resize: none;
-    font-size: 1.6rem;
-    padding: 0.8rem 0.5rem;
+    font-size: 16px;
+    padding: 8px 10px;
 }
 
 
