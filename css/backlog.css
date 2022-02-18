@@ -226,7 +226,7 @@ time {
 
 .overlay.active {
     opacity: 1;
-    z-index: 20;
+    z-index: 999;
 }
 
 
