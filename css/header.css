@@ -1,4 +1,3 @@
-
 .header {
     position: fixed;
     top: 0;
@@ -60,7 +59,7 @@
 }
 
 .navbar__link {
-    font-size: 26px;
+    font-size: 24px;
     text-decoration: none;
     color: white;
     padding: 10px 0;
@@ -82,8 +81,8 @@
 
 
 .navbar__user-img {
-    width: 90px;
-    height: 90px;
+    width: 80px;
+    height: 80px;
     border-radius: 100%;
     object-fit: cover;
     border: 4px solid white;
@@ -125,16 +124,13 @@
     background-color: white;
 }
 
-.navbar__mobile-list-item:hover > a {
+.navbar__mobile-list-item:hover>a {
     color: black;
 }
 
 
 .only-mobile {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    display: none;
     color: #FFF;
     height: 30px;
     right: 20px;
@@ -300,5 +296,12 @@
         padding-right: 1.3rem;
         padding-top: 13rem;
         padding-bottom: 2rem;
+    }
+
+    .only-mobile {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
     }
 }
