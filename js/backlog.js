@@ -18,7 +18,9 @@ let users = [{
     img: "img/pexels-tima-miroshnichenko-7567200.jpg"
 }];
 
+
 setURL('http://gruppe-167.developerakademie.net/');
+
 
 async function init() {
     await downloadTasksFromServer();
@@ -28,19 +30,20 @@ async function init() {
     renderUserImages();
 }
 
+
 async function downloadTasksFromServer() {
     await downloadFromServer();
     allTasks = await JSON.parse(backend.getItem('allTasks')) || [];
 }
 
+
 function renderTasks() {
     let tasks = document.getElementById('tasks');
     tasks.innerHTML = '';
-
     for (let i = allTasks.length - 1; i >= 0; i--) {
         if (allTasks[i].backlog) {
-            tasks.innerHTML += `
-            <li class="backlog__list-item ${getBacklogColor(i)}">
+            tasks.innerHTML += 
+    `<li class="backlog__list-item ${getBacklogColor(i)}">
        <div class="assigned-to">
        <div class="user-image-container">
        ${getUserImages(i)}
@@ -63,22 +66,22 @@ function renderTasks() {
                ${shortenDescription(allTasks[i].description)}
            </p>
        </div>
-       <div class="action-btn">
-       <img onclick="editTask(${i})" class="edit-task" title="Edit task" src="img/edit.png">
-       <img onclick="addTaskToBoard(${i})" class="add-task" title="Add task to the board" src="img/add.png">
-    </div>
+        <div class="action-btn">
+            <img onclick="editTask(${i})" class="edit-task" title="Edit task" src="img/edit.png">
+            <img onclick="addTaskToBoard(${i})" class="add-task" title="Add task to the board" src="img/add.png">
+        </div>
     </li>
     `;
-        } else {
-            // Tue noch gar nichts 
         }
     }
 }
+
 
 function openAssignedTo() {
     let openUserContainer = document.querySelector('.assigned-to__user-container');
     openUserContainer.classList.toggle('d-none');
 }
+
 
 function getBacklogColor(index) {
     return allTasks[index].category;
@@ -87,13 +90,14 @@ function getBacklogColor(index) {
 
 function addUserToTask(id) {
     let userContainer = document.getElementById('assigned-user');
-    if (!checkIsIncluded(id)) {
+    if (!checkIsIdIncluded(id)) {
         usersTask.push(users[id]);
         userContainer.innerHTML += `<img class="form-assigned-to__img active" onclick="removeUserFromTask(${id})" src="${users[id].img}">`;
     }
 }
 
-function checkIsIncluded(id) {
+
+function checkIsIdIncluded(id) {
     return usersTask.some(user => user.id == users[id].id);
 }
 
@@ -104,11 +108,6 @@ function renderUserImages() {
     for (let i = 0; i < users.length; i++) {
         userContainer.innerHTML += createImgTag(users[i].img, users[i].id);
     }
-}
-
-
-function $delay(argument, time) {
-    return setTimeout(argument, time);
 }
 
 
@@ -123,17 +122,36 @@ function removeUserFromTask(id) {
     renderAssignUsers();
 }
 
+
 function shortenDescription(text) {
     let description = text;
     let shorten = description.substring(0, 60);
-    return shorten.replace(/.$/, "...");
+    if(text.length > 60) {
+        return shorten.replace(/.$/, "...");
+    }else{
+        return text;
+    }
 }
 
 
 function getUserImages(index) {
-    let img = '';
     for (let i = 0; i < allTasks[index].users.length; i++) {
-        img += `<img class="assigned-to__img" src="${allTasks[index].users[i].img}" alt="">`;
+       return showUserImages(index);
+    }
+}
+
+
+function showUserImages(index) {
+    let img = '';
+    let count = 0;
+    for (let i = 0; i < allTasks[index].users.length; i++) {
+        if(count <= 1){
+            count++;
+            img += `<img class="assigned-to__img" src="${allTasks[index].users[i].img}" alt="">`;
+        }else{
+            img += `<div class="more-images">+ ${allTasks[index].users.length - 2}</div>`;
+            break;
+        }
     }
     return img;
 }
@@ -146,11 +164,13 @@ function getUserEmail(index) {
     }
 }
 
+
 function getUserName(index) {
     for (let i = 0; i < allTasks[index].users.length; i++) {
         return allTasks[index].users[i].name;
     }
 }
+
 
 function renderAssignUsers() {
     let userContainer = document.getElementById('assigned-user');
@@ -165,6 +185,12 @@ function addTaskToBoard(index) {
     allTasks[index].backlog = false;
     allTasks[index].board = true;
     renderTasks();
+    addToBoardNotification();
+    updateTasksToServer();
+}
+
+
+function updateTasksToServer(){
     backend.setItem('allTasks', JSON.stringify(allTasks));
 }
 
@@ -179,7 +205,6 @@ function editTask(index) {
     pushUserImages(index);
     renderAssignUsers();
     document.getElementById('tasks-form').setAttribute('onsubmit', `saveEditTaskToServer(${index}); event.preventDefault();`)
-
 }
 
 
@@ -193,12 +218,6 @@ function pushUserImages(index) {
 function getTaskTitle(index) {
     let title = document.getElementById('title');
     title.value = allTasks[index].title;
-}
-
-
-function getTaskCategory(index) {
-    let title = document.getElementById('category');
-    title.value = allTasks[index].category;
 }
 
 
@@ -236,6 +255,7 @@ function getDate(index) {
     date.value = allTasks[index].date;
 }
 
+
 function openEditTask() {
     let openOverlay = document.getElementById('overlay');
     removeDnone();
@@ -263,6 +283,7 @@ function removeDnone() {
 
 }
 
+
 function saveEditTaskToServer(index) {
     let form = document.getElementById("tasks-form").elements;
     allTasks[index].title = form[0].value;
@@ -272,6 +293,24 @@ function saveEditTaskToServer(index) {
     allTasks[index].urgency = form[4].value;
     allTasks[index].users = usersTask;
     backend.setItem('allTasks', JSON.stringify(allTasks));
+}
+
+
+function addToBoardNotification(){
+    showNotification();
+    $delay(()=> { hideNotification() }, 5000);
+}
+
+
+function showNotification() {
+    let notification = document.querySelector('.notification');
+    notification.classList.add('active');
+}
+
+
+function hideNotification() {
+    let notification = document.querySelector('.notification');
+    notification.classList.remove('active');
 }
 
 
