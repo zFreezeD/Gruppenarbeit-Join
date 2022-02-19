@@ -76,15 +76,15 @@
     height: 100%;
 }
 
-.backlog__list-item.sale::after {
+.backlog__list-item.Sale::after {
     background-color: blue;
 }
 
-.backlog__list-item.product::after {
+.backlog__list-item.Product::after {
     background-color: chartreuse;
 }
 
-.backlog__list-item.management::after {
+.backlog__list-item.Management::after {
     background-color: red;
 }
 
@@ -442,6 +442,53 @@ input[type="date"] {
     padding: 8px 10px;
 }
 
+.notification {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 20px;
+    right: 0;
+    background-color: #3248b8;
+    padding: 10px 20px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    transition: all 225ms ease-in-out;
+    transform: translateX(100%);
+}
+
+.notification.active {
+    transform: translateX(0);
+}
+
+.notification img {
+    width: 20px;
+    display: block;
+    filter: invert(1);
+}
+
+.notification p {
+    color: white;
+    font-size: 15px;
+    padding-left: 10px;
+}
+
+.more-images {
+    font-size: 16px;
+    font-weight: bold;
+    color: #000000c7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 55px;
+    height: 55px;
+    border-radius: 100%;
+    object-fit: cover;
+    border: 4px solid white;
+    cursor: pointer;
+    background-color: #e6e6e6;
+    box-shadow: 1px 1px 8px #00000021;
+    margin: 0 0 0 -20px;
+}
 
 .d-none {
     display: none;
@@ -475,6 +522,10 @@ input[type="date"] {
 @media (max-width: 33em) {
     .category, .backlog__titles>h3:nth-child(2) {
         display: none;
+    }
+
+    .details {
+        padding-left: 10px;
     }
 }
 
