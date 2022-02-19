@@ -152,6 +152,7 @@ time {
 .details__description {
     max-width: 240px;
     word-wrap: break-word;
+    word-break: break-all;
     text-align: left;
 }
 
