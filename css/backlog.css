@@ -454,6 +454,7 @@ input[type="date"] {
     border-bottom-left-radius: 5px;
     transition: all 225ms ease-in-out;
     transform: translateX(100%);
+    z-index: 9999;
 }
 
 .notification.active {
