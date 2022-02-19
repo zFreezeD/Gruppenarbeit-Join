@@ -1,6 +1,12 @@
 
 let allTasks = [];
 let usersTask = [];
+let workerArray =
+{
+    image: [1, 3, 2, 1, 4, 2],
+    name: ["Thorsten", "Lena", "Anton", "Mehmet", "Kim", "Panto"],
+    email: ["thorsten@mail.com", "lena@mail.com", "anton@mail.com", "mehmet@mail.com", "kim@mail.com", "panto@mail.com"]
+}
 let users = [{
     id: 0,
     name: "Aldin",
@@ -42,8 +48,8 @@ function renderTasks() {
     tasks.innerHTML = '';
     for (let i = allTasks.length - 1; i >= 0; i--) {
         if (allTasks[i].backlog) {
-            tasks.innerHTML += 
-    `<li class="backlog__list-item ${getBacklogColor(i)}">
+            tasks.innerHTML +=
+                `<li class="backlog__list-item ${getBacklogColor(i)}">
        <div class="assigned-to">
        <div class="user-image-container">
        ${getUserImages(i)}
@@ -92,7 +98,7 @@ function addUserToTask(id) {
     let userContainer = document.getElementById('assigned-user');
     if (!checkIsIdIncluded(id)) {
         usersTask.push(users[id]);
-        userContainer.innerHTML += `<img class="form-assigned-to__img active" onclick="removeUserFromTask(${id})" src="${users[id].img}">`;
+        userContainer.innerHTML += `<img class="form-assigned-to__img active" onclick="removeUserFromTask(${id})" src="${workerArray.img[id]}">`;
     }
 }
 
@@ -106,13 +112,13 @@ function renderUserImages() {
     let userContainer = document.getElementById('user-cotainer');
     userContainer.innerHTML = '';
     for (let i = 0; i < users.length; i++) {
-        userContainer.innerHTML += createImgTag(users[i].img, users[i].id);
+        userContainer.innerHTML += createUserImgTag(workerArray.image[i], users[i].id);
     }
 }
 
 
-function createImgTag(path, key) {
-    return `<img class="form-assigned-to__img" onclick="addUserToTask(${key})" src="${path}">`;
+function createUserImgTag(path, key) {
+    return `<img class="form-assigned-to__img" onclick="addUserToTask(${key})" src="img/taskProfile${path}.png">`;
 }
 
 
@@ -126,9 +132,9 @@ function removeUserFromTask(id) {
 function shortenDescription(text) {
     let description = text;
     let shorten = description.substring(0, 60);
-    if(text.length > 60) {
+    if (text.length > 60) {
         return shorten.replace(/.$/, "...");
-    }else{
+    } else {
         return description;
     }
 }
@@ -136,7 +142,7 @@ function shortenDescription(text) {
 
 function getUserImages(index) {
     for (let i = 0; i < allTasks[index].users.length; i++) {
-       return showUserImages(index);
+        return showUserImages(index);
     }
 }
 
@@ -145,10 +151,10 @@ function showUserImages(index) {
     let img = '';
     let count = 0;
     for (let i = 0; i < allTasks[index].users.length; i++) {
-        if(count <= 1){
+        if (count <= 1) {
             count++;
             img += `<img class="assigned-to__img" src="${allTasks[index].users[i].img}" alt="">`;
-        }else{
+        } else {
             img += `<div class="more-images">+ ${allTasks[index].users.length - 2}</div>`;
             break;
         }
@@ -190,7 +196,7 @@ function addTaskToBoard(index) {
 }
 
 
-function updateTasksToServer(){
+function updateTasksToServer() {
     backend.setItem('allTasks', JSON.stringify(allTasks));
 }
 
@@ -297,9 +303,9 @@ function saveEditTaskToServer(index) {
 }
 
 
-function addToBoardNotification(){
+function addToBoardNotification() {
     showNotification();
-    $delay(()=> { hideNotification() }, 5000);
+    $delay(() => { hideNotification() }, 5000);
 }
 
 
