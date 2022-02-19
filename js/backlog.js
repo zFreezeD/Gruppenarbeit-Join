@@ -129,7 +129,7 @@ function shortenDescription(text) {
     if(text.length > 60) {
         return shorten.replace(/.$/, "...");
     }else{
-        return text;
+        return description;
     }
 }
 
@@ -292,6 +292,7 @@ function saveEditTaskToServer(index) {
     allTasks[index].date = form[3].value;
     allTasks[index].urgency = form[4].value;
     allTasks[index].users = usersTask;
+    renderTasks();
     backend.setItem('allTasks', JSON.stringify(allTasks));
 }
 
