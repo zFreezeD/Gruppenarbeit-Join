@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="css/mainstyle.css">
     <link rel="stylesheet" href="css/backlog.css">
 </head>
+
 <body onload="init()">
     <!-- Include Header -->
     <div w3-include-html="templates/header.html"></div>
@@ -57,9 +58,9 @@
                                 <label for="category"
                                     class="headline headline--xs headline--blue headline--sub mb-s">Category</label>
                                 <select class="form-select" name="" id="category" required>
-                                    <option value="management">Management</option>
-                                    <option value="product">Product</option>
-                                    <option value="sale">Sale</option>
+                                    <option value="Management">Management</option>
+                                    <option value="Product">Product</option>
+                                    <option value="Sale">Sale</option>
                                 </select>
                             </div>
                             <div class="form__textarea">
@@ -80,9 +81,9 @@
                                 <label for="urgency"
                                     class="headline headline--xs headline--blue headline--sub mb-s">Urgency</label>
                                 <select class="form-select" name="urgency" id="urgency" required>
-                                    <option value="high">High</option>
-                                    <option value="middle">Middle</option>
-                                    <option value="middle">Low</option>
+                                    <option value="High">High</option>
+                                    <option value="Mid">Middle</option>
+                                    <option value="Low">Low</option>
                                 </select>
                             </div>
                             <div class="form__assigned-to">
@@ -104,6 +105,12 @@
                 <img onclick="closeEditTask()" class="close" src="img/close_black_24dp(2).svg" alt="">
             </figure>
         </div>
+    </div>
+    <div class="notification">
+        <img src="img/outline_info_black_24dp.png">
+        <p class="notification-text">
+            Add task to board
+        </p>
     </div>
 </body>
 
