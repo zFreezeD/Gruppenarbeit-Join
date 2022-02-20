@@ -1,45 +1,45 @@
 
 let allTasks = [];
 let usersTask = [];
-let workerArray =
-{
-    image: [1, 3, 2, 1, 4, 2],
-    name: ["Thorsten", "Lena", "Anton", "Mehmet", "Kim", "Panto"],
-    email: ["thorsten@mail.com", "lena@mail.com", "anton@mail.com", "mehmet@mail.com", "kim@mail.com", "panto@mail.com"]
-}
-let users = [{
-    id: 0,
-    name: "Aldin",
-    email: "don.joe@gmx.at",
-    img: "img/pexels-italo-melo-2379004.jpg"
-}, {
-    id: 1,
-    name: "Herbert",
-    email: "herbert@gmail.com",
-    img: "img/pexels-emmy-e-2381069.jpg"
-}, {
-    id: 2,
-    name: "Toni",
-    email: "toni@hotmail.com",
-    img: "img/pexels-tima-miroshnichenko-7567200.jpg"
-}];
-
+let workerArray = [];
+let usersArray = [];
 
 setURL('http://gruppe-167.developerakademie.net/');
 
 
 async function init() {
     await downloadTasksFromServer();
+    await downloadWorkersArrayFromServer();
     includeHTML();
     renderTasks();
     getCurrentTime();
     renderUserImages();
+    setupWorkerArray();
 }
 
 
 async function downloadTasksFromServer() {
     await downloadFromServer();
     allTasks = await JSON.parse(backend.getItem('allTasks')) || [];
+}
+
+
+async function downloadWorkersArrayFromServer() {
+    await downloadFromServer();
+    workerArray = await JSON.parse(backend.getItem('workerArray')) || [];
+}
+
+
+function setupWorkerArray() {
+    for (let i = 0; i < workerArray.image.length; i++) {
+        let user = {
+            id: i,
+            img: 'img/taskProfile' + workerArray.image[i] + '.png',
+            name: workerArray.name[i],
+            email: workerArray.email[i]
+        }
+        usersArray.push(user);
+    }
 }
 
 
@@ -97,22 +97,23 @@ function getBacklogColor(index) {
 function addUserToTask(id) {
     let userContainer = document.getElementById('assigned-user');
     if (!checkIsIdIncluded(id)) {
-        usersTask.push(users[id]);
-        userContainer.innerHTML += `<img class="form-assigned-to__img active" onclick="removeUserFromTask(${id})" src="${workerArray.img[id]}">`;
+        usersTask.push(usersArray[id]);
+        let index = usersTask.indexOf(usersArray[id]);
+        userContainer.innerHTML += `<img class="form-assigned-to__img active" onclick="removeUserFromTask(${id})" src="${usersTask[index].img}">`;
     }
 }
 
 
 function checkIsIdIncluded(id) {
-    return usersTask.some(user => user.id == users[id].id);
+    return usersTask.some(user => user.id == usersArray[id].id);
 }
 
 
 function renderUserImages() {
     let userContainer = document.getElementById('user-cotainer');
     userContainer.innerHTML = '';
-    for (let i = 0; i < users.length; i++) {
-        userContainer.innerHTML += createUserImgTag(workerArray.image[i], users[i].id);
+    for (let i = 0; i < workerArray.image.length; i++) {
+        userContainer.innerHTML += createUserImgTag(workerArray.image[i], i);
     }
 }
 
@@ -123,7 +124,7 @@ function createUserImgTag(path, key) {
 
 
 function removeUserFromTask(id) {
-    let index = usersTask.indexOf(users[id]);
+    let index = usersTask.indexOf(usersArray[id]);
     usersTask.splice(index, 1);
     renderAssignUsers();
 }
@@ -216,7 +217,15 @@ function editTask(index) {
 
 function pushUserImages(index) {
     for (let i = 0; i < allTasks[index].users.length; i++) {
-        usersTask.push(allTasks[index].users[i]);
+        renderUsersTask(allTasks[index].users[i]);
+    }
+}
+
+function renderUsersTask(object) {
+    for (let i = 0; i < usersArray.length; i++) {
+        if (object.id == usersArray[i].id) {
+            usersTask.push(usersArray[i]);
+        }
     }
 }
 
@@ -299,7 +308,16 @@ function saveEditTaskToServer(index) {
     allTasks[index].urgency = form[4].value;
     allTasks[index].users = usersTask;
     renderTasks();
+    showEditNotification();
     backend.setItem('allTasks', JSON.stringify(allTasks));
+}
+
+function showEditNotification() {
+    let edit = document.getElementById('edit-notification');
+    edit.classList.remove('hide');
+    $delay(() => { edit.classList.add('hide') }, 5000);
+    $delay(() => { closeEditTask() }, 2000);
+
 }
 
 
