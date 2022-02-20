@@ -103,6 +103,7 @@
     cursor: pointer;
     display: block;
     box-shadow: 1px 1px 8px #00000021;
+    transition: all 125ms ease-in-out;
 }
 
 .assigned-to__img:not(:first-child) {
@@ -317,6 +318,8 @@ time {
     box-shadow: 1px 1px 8px #00000029;
     transform: translate(0, -20px);
     z-index: 99;
+    max-width: 300px;
+    overflow-x: scroll;
 }
 
 .assigned-user {
@@ -376,6 +379,9 @@ time {
 }
 
 .form__btn-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin: 20px -30px -30px -30px;
     padding: 1rem;
     background-color: #e7e7e7;
@@ -390,6 +396,14 @@ time {
     background: var(--btn-blue);
     color: white;
     padding: 8px 20px;
+}
+
+#edit-notification {
+    color: white;
+    border-radius: 5px;
+    background-color: green;
+    padding: 10px 20px;
+    transition: all 225ms ease-in-out;
 }
 
 input[type="text"],
@@ -490,6 +504,10 @@ input[type="date"] {
     background-color: #e6e6e6;
     box-shadow: 1px 1px 8px #00000021;
     margin: 0 0 0 -20px;
+}
+
+.hide {
+    opacity: 0;
 }
 
 .d-none {
