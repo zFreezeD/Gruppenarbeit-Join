@@ -59,7 +59,7 @@ function createMember() {
     let memberSelect = document.getElementById('member-select');
     memberSelect.innerHTML = '';
     console.log("TTT", workerArray, memberSelect, workerArray.length);
-    
+
     for (let i = 0; i < workerArray['name'].length; i++) {
         memberSelect.innerHTML += `<option value="${i}">${workerArray['name'][i]}</option>`;
     }
@@ -105,11 +105,29 @@ function createCards() {
         if (allTasks.length > 0) {
             if (allTasks[userTasks[i]['taskIndex']]['users'][userTasks[i]['userIndex']]['id'] == currentID) {
                 landing = document.getElementById(userTasks[i]['category']);
+                console.log("Test", allTasks[userTasks[i]['taskIndex']]['urgency'])
+
+                let colorClass;
+                let textColor;
+
+                if (allTasks[userTasks[i]['taskIndex']]['urgency'] == "High") {
+                    colorClass = "border-color-red";
+                    textColor = "color-red";
+                }
+                else if (allTasks[userTasks[i]['taskIndex']]['urgency'] == "Mid"){
+                    colorClass = "border-color-yellow";
+                    textColor = "color-yellow";
+                }
+                else{
+                    colorClass = "border-color-green";
+                    textColor = "color-green";
+                }
+
                 landing.innerHTML +=
-                    `<div id="index-${i}" ondragstart="startDrag(${i})" draggable="true" class="dragable-note">
+                    `<div id="index-${i}" ondragstart="startDrag(${i})" draggable="true" class="dragable-note ${colorClass}">
             <div class="dragable-note-title">${allTasks[userTasks[i]['taskIndex']]['title']}</div>
             <div class="dragable-note-description">${allTasks[userTasks[i]['taskIndex']]['description']}</div>
-            <div class="dragable-note-date">${allTasks[userTasks[i]['taskIndex']]['date']}</div>
+            <div class="dragable-note-date ${textColor}">${allTasks[userTasks[i]['taskIndex']]['date']}</div>
         </div>`
             }
         }
@@ -134,7 +152,7 @@ function moveTo(category) {
 
 
 function changeUser() {
-    currentID= document.getElementById('member-select').value;
+    currentID = document.getElementById('member-select').value;
 
     document.getElementById('member-name').innerHTML = workerArray['name'][currentID];
     document.getElementById('member-email').innerHTML = workerArray['email'][currentID];

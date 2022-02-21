@@ -27,29 +27,33 @@
     <div class="main">
         <div class="head">
             <h2 id="header">Board of name</h2>
+
             <div id="user" class="assign-menu-object">
-                <img id="member-image" src="img/taskProfile1.png">
-                <div class="assign-menu-object-information">
-                    <p id="member-name">Name</p>
-                    <p id="member-email">mail@mail.de</p>
-                </div>
                 <select onchange="changeUser()" id="member-select" name="member">
-                    <option  value="volvo">Name</option>
-                  </select>
-            </div> 
+                    <option value="volvo">Name</option>
+                </select>
+                <div class="assign-menu-user">
+                    <img id="member-image" src="img/taskProfile1.png">
+                    <div class="assign-menu-object-information">
+                        <p id="member-name">Name</p>
+                        <p id="member-email">mail@mail.de</p>
+                    </div>
+                </div>
+
+            </div>
         </div>
 
-
-        <div  class="main-objects">
+        <h3 style="display: flex; justify-content: center; color: #1E3190; font-size: 1.2em; margin: 5px;">Scroll with SHIFT + Mousewheel</h3>
+        <div class="main-objects">
             <div ondrop="moveTo('landing-landing')" ondragover="allowDrop(event)" class="object-container">
                 <div class="object-title">
                     <h2>Landing</h2>
                 </div>
-                <div  id="landing-landing" class="object-landing">
+                <div id="landing-landing" class="object-landing">
 
                 </div>
 
-                <p class="add-card">Add card</p>
+                <!-- <p class="add-card">Add card</p> -->
 
             </div>
 
@@ -57,22 +61,22 @@
                 <div class="object-title">
                     <h2>In Progress</h2>
                 </div>
-                <div   id="landing-inprogress" class="object-landing">
+                <div id="landing-inprogress" class="object-landing">
 
                 </div>
 
-                <p class="add-card">Add card</p>
+                <!-- <p class="add-card">Add card</p> -->
             </div>
 
             <div ondrop="moveTo('landing-discuss')" ondragover="allowDrop(event)" class="object-container">
                 <div class="object-title">
                     <h2>Discuss</h2>
                 </div>
-                <div  id="landing-discuss" class="object-landing">
+                <div id="landing-discuss" class="object-landing">
 
                 </div>
 
-                <p class="add-card">Add card</p>
+                <!-- <p class="add-card">Add card</p> -->
             </div>
 
             <div ondrop="moveTo('landing-done')" ondragover="allowDrop(event)" class="object-container">
@@ -83,7 +87,7 @@
 
                 </div>
 
-                <p class="add-card">Add card</p>
+                <!-- <p class="add-card">Add card</p> -->
 
             </div>
         </div>

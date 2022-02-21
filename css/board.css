@@ -1,4 +1,8 @@
-.header {}
+.head {
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+}
 
 .main {
     margin-top: 10px;
@@ -16,16 +20,23 @@
 
 .object-container {
     display: flex;
+    align-items: center;
     flex-flow: column;
     min-height: 300px;
     height: 80vh;
-    
+    width: 18vw;
     max-height: 95vh;
     margin-right: 50px;
     min-width: 290px;
     background-color: #1E3190;
 
     overflow-y: auto;
+}
+
+.object-landing{
+    display: flex;
+    align-items: center;
+    flex-flow: column;
 }
 
 
@@ -40,42 +51,73 @@
 .dragable-note {
     cursor: pointer;
 
-    color: white;
+    color: black;
     display: flex;
     flex-flow: column;
     margin: 10px;
 
     height: fit-content;
-    width: 270px;
+    max-height: 250px;
+    min-width: 270px;
+    width: 16vw;
 
-    background-color: red;
-
+    background-color: white;
     border-radius: 5%;
-    -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
-    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+    -webkit-box-shadow: 0px 5px 20px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+    box-shadow: 0px 5px 20px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
 
 }
 
+.border-color-red {
+    border-top: 5px solid red;
+}
+
+.border-color-yellow {
+    border-top: 5px solid orange;
+}
+
+.border-color-green {
+    border-top: 5px solid green;
+}
+
+
+
+
 .dragable-note-title {
-    display: flex;
-    justify-content: center;
     font-size: 1.2em;
+    margin: 10px;
 }
 
 .dragable-note-description {
     padding-left: 5px;
     max-height: 200px;
     overflow-y: auto;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin: 10px;
+    font-size: 1em;
+    color: #2c2c2c;
 }
 
 .dragable-note-date {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
+    margin: 10px;
+    font-size: 0.8em;
+    color: red;
 }
 
-.add-card{
+.color-red {
+    color: red;
+}
+
+.color-yellow {
+    color: orange;
+}
+
+.color-green {
+    color: green;
+}
+
+.add-card {
     cursor: pointer;
     color: rgba(255, 255, 255, 0.8);
     margin-top: 10px;
@@ -86,29 +128,58 @@
 }
 
 
+/* custom scrollbar */
+::-webkit-scrollbar, ::-webkit-scrollbar {
+    height: 20px;
+}
+
+::-webkit-scrollbar-track, ::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb, ::-webkit-scrollbar-thumb {
+    background-color: #1f3190;
+    border-radius: 20px;
+    border: 6px solid transparent;
+    background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover, ::-webkit-scrollbar-thumb:hover {
+    background-color: #122583;
+}
 
 
 
 
 
 .assign-menu-object {
-    max-width: 300px;
-    height: 80px;
-    margin: 10px;
-    padding-right: 10px;
-    background-color: rgba(31, 50, 144, 0.5);;
+    padding-top: 15px;
+    margin-right: 25px;
+    margin-bottom: 15px;
+    width: 100%;
+    height: fit-content;
+    background-color: #1E3190;
+    color: white;
     border-radius: 10px;
     display: flex;
+    flex-flow: column;
     align-items: center;
 }
 
-.assign-menu-object-information{
+.assign-menu-user{
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.assign-menu-object-information {
     display: flex;
     flex-flow: column;
     font-weight: bold;
 }
 
-.assign-menu-object-information p{
+.assign-menu-object-information p {
     margin: 2px;
 }
 
@@ -118,4 +189,15 @@
     margin: 5px;
     height: 50px;
     width: 50px;
+}
+
+
+@media (max-width: 700px) {
+
+.main{
+    margin: 0;
+    margin-top: 100px;
+    margin-left: 15px;
+}
+
 }
